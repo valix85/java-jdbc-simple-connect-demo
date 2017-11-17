@@ -76,7 +76,7 @@ public class Pr044 {
 
 
 
-            // UPDATE = UPDATE
+
 
 
 
@@ -106,6 +106,27 @@ public class Pr044 {
             }
             rs.close();
             System.out.println(ultimoAbbonamento);
+
+
+            // UPDATE = UPDATE
+            /*
+            * prima di cancellare provo a fare una modifica
+            * */
+
+            ultimoAbbonamento.setCostoAlSecondo(1.15);
+            ultimoAbbonamento.setDescrizione("Abbonamento DA CANCELLARE DAL DB");
+
+            String queryUpdate = abbSrv.update(ultimoAbbonamento.getIdAbbonamento());
+            PreparedStatement ps = conn.prepareStatement(queryUpdate);
+            ps.setLong(1, ultimoAbbonamento.getIdAbbonamento());
+            ps.setString(2, ultimoAbbonamento.getDescrizione());
+            ps.setDouble(3, ultimoAbbonamento.getCostoAlSecondo());
+            ps.setBoolean(4, ultimoAbbonamento.isAttivo());
+            ps.setBoolean(5, ultimoAbbonamento.isCancellato());
+            System.out.println(ps);
+            ps.executeUpdate();
+            System.out.println("Record aggiornati: " + ps.getUpdateCount() );
+
 
 
 

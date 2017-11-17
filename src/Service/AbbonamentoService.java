@@ -11,4 +11,5 @@ public interface AbbonamentoService {
     public String addAbbonamento(Abbonamento abb);
     public String deleteStmByID();
 
+    String update(Long id);
 }

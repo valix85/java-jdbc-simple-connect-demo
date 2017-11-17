@@ -27,5 +27,14 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
         return "DELETE FROM abbonamento WHERE id = ? ;";
     }
 
-
+    @Override
+    public String update(Long id) {
+        return "UPDATE abbonamento SET " +
+                "id = ?, " +
+                "label = ?, " +
+                "costo_secondo = ?, " +
+                "attivato= ?, " +
+                "cancellato = ? " +
+                "WHERE id = "+id+" ;";
+    }
 }
