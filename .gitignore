@@ -151,3 +151,8 @@ local.properties
 .scala_dependencies
 .worksheet
 
+.gitignore
+.idea/
+out/
+pr044-jdbc.iml
+src/
